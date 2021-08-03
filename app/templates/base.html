@@ -1,0 +1,51 @@
+  
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-inverse">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <!-- <li class="dropdown"><a href="Restaurants"><span class="bi bi-person-circle">Restaurants</span> <i class="bi bi-chevron-down"></i></a> -->
+                
+                <ul>
+                    <li><a href="#">Welcome '{{ request.user|upper }}'</a></li>
+                    <li><a href="/accounts/logout">logout</a></li>
+                </ul>
+                </li>
+                    {% else %}
+                    <li><a href="/signup">SignUp</a></li>
+                    <li><a href="/accounts/login">Login</a></li>
+                    {% endif %}l̥
+            </ul>
+
+            <ul class="nav navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"  margin-right: 5px href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="  {% url 'offer' %} ">Offer</a>
+                </li>
+            </ul>
+    </div>
+</nav>
+
+
+{% block body_block %}
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Order Page</h2>
+
+<form action="" method="POST">
+  {% csrf_token %}
+      {% for i in item %}
+        <label for="fname">Username</label><br>
+        <input type="text" id="fname" name="username"><br>
+        <label for="lname">Contact</label><br>
+        <input type="text" id="lname" name="contact"><br>
+        <label for="fname">Email</label><br>
+        <input type="text" id="fname" name="email"><br>
+        <label for="lname">Address</label><br>
+        <input type="text" id="lname" name="address"><br>
+        <label for="lname">Restaurant Name</label><br>
+        <input type="text" id="lname" name="restaurant_name" value="{{i.restaurant_name}}"><br>
+        <label for="lname">Item Name</label><br>
+        <input type="text" id="lname" name="items_name" value="{{i.items}}"><br>
+      {% endfor %}
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, your order will be placed.</p>
+
+</body>
+</html>
